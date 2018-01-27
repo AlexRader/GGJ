@@ -559,7 +559,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.15
 --- !u!212 &599826489
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.15
 --- !u!212 &1124968143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1010,7 +1010,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.15
 --- !u!212 &1365657444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.15
 --- !u!212 &1414709765
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   - {fileID: 497252973}
   - {fileID: 464569443}
   - {fileID: 1623521001}
-  bpm: 120
+  bpm: 60
 --- !u!4 &1530544322
 Transform:
   m_ObjectHideFlags: 0

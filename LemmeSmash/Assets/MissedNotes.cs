@@ -21,7 +21,7 @@ public class MissedNotes : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        notesMissed += 1;
+        //notesMissed += 1;
         //missed note effect plays
     }
 }
