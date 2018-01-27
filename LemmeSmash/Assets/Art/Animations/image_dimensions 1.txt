@@ -1,0 +1,3 @@
+sprite_bird_idle - 1024x1024
+sprite_bird_up - 1024x1024
+sprite_bird_down - 1024x1024
