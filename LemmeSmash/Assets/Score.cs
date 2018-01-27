@@ -22,7 +22,7 @@ public class Score : MonoBehaviour {
 
         Frenzy();
         Victory();
-        Test();
+        //Test();
 	}
 
     void Frenzy()
@@ -43,7 +43,7 @@ public class Score : MonoBehaviour {
         }
     }
 
-    void Test()
+   /* void Test()
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
@@ -54,5 +54,5 @@ public class Score : MonoBehaviour {
         {
             score += 1;
         }
-    }
+    }*/
 }
