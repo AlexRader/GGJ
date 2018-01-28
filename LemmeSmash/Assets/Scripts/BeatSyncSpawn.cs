@@ -103,7 +103,7 @@ public class BeatSyncSpawn : MonoBehaviour
                 FrenzyChange();
                 if (Score.frenzy > superScoreModifier + Score.score)
                     superScoreModifier += (Score.frenzy - (superScoreModifier + Score.score));
-                ModifyScore(superScoreModifier + 5);
+                ModifyScore(superScoreModifier + 20);
                 frenzyTime = maxTime;
                 timeTillNextFrenzy = maxTime * 2;
             }

@@ -9,8 +9,16 @@ public class LevelSwitch : MonoBehaviour
     private float songLength;
     private int levelIndex;
     public bool started;
-    const float waitTime = 5.0f;
+    const float waitTime = 2.0f;
     private bool AudioPaused = false;
+    public AudioSource Becky;
+    public AudioClip Bad;
+    public AudioClip Good;
+    public GameObject goodVideo;
+
+    public GameObject badVideo;
+
+    public bool happened = false;
     // Use this for initialization
     void Start()
     {
@@ -30,12 +38,28 @@ public class LevelSwitch : MonoBehaviour
         {
             songLength -= Time.deltaTime;
 
-            if (songLength <= 0)
+            if (songLength <= 0 && !happened)
             {
-                LevelChange();
+                happened = true;
+                if (Score.score > 50)
+                {
+                    Becky.clip = Good;
+                    Becky.Play();
+                    Instantiate(goodVideo, Vector3.zero, Quaternion.identity);
+                }
+
+                else
+                {
+                    Becky.clip = Bad;
+                    Becky.Play();
+                    Instantiate(badVideo, Vector3.zero, Quaternion.identity);
+                }
+                StartCoroutine(LevelChange());
+
             }
         }
     }
+    
 
     private IEnumerator levelStart()
     {
@@ -50,9 +74,15 @@ public class LevelSwitch : MonoBehaviour
             started = true;
     }
 
-    void LevelChange()
+    IEnumerator LevelChange()
     {
-        SceneManager.LoadScene(levelIndex + 1, LoadSceneMode.Single);
+        yield return new WaitForSeconds(waitTime);
+        if (Score.score > 50)
+        {
+            SceneManager.LoadScene(levelIndex + 1, LoadSceneMode.Single);
+        }
+        else
+            SceneManager.LoadScene("EndFull", LoadSceneMode.Single);
     }
 }
 

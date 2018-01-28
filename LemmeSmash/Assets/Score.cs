@@ -14,19 +14,21 @@ public class Score : MonoBehaviour
     public GameObject frenzyChanger;
 
     [SerializeField]
-    public static float frenzy = 12;
+    public static float frenzy = 20;
 
     // Use this for initialization
     void Start()
     {
-        score = 25;
+        score = 35;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         SmashoMeter.value = score;
         score -= MissedNotes.notesMissed;
+        
 
         //Frenzy();
         Victory();

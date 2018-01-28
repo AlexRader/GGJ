@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TheSmashScene.unity
     guid: 8d809f4dc3705ee42b5ab4f6b680832f
   - enabled: 1
-    path: Assets/Scenes/NextSmashScene.unity
-    guid: 1369028234b298b43b3b64b9635b20ac
-  - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/da61533aec427114db2ba6b129a2452d
-    guid: da61533aec427114db2ba6b129a2452d
+    path: Assets/Scenes/NextSmashScene 1.unity
+    guid: a906042f91c231d48849f22866b9130a
+  - enabled: 1
+    path: Assets/Scenes/thirdSmashScene.unity
+    guid: a2b8b49ac216a3e4a85bd59f935e8cb5
+  - enabled: 1
+    path: Assets/Scenes/fourthSmashScene.unity
+    guid: 0a35a06788fde764eb793c8772e988c2
+  - enabled: 1
+    path: Assets/Scenes/EndFull.unity
+    guid: 010e308f92f92404bafe24c87050154d

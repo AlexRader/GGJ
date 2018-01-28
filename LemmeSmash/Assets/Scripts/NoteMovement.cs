@@ -18,7 +18,7 @@ public class NoteMovement : MonoBehaviour {
         if (transform.position.x > buffer)
         {
             Destroy(this);
-            ModifyScore(-1);
+            ModifyScore(-8);
         }
 	}
 
