@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58488934988498854}
   - component: {fileID: 82743383614662172}
   m_Layer: 0
-  m_Name: EggFab
+  m_Name: vaporEgg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
