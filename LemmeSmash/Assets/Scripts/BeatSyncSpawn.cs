@@ -27,6 +27,7 @@ public class BeatSyncSpawn : MonoBehaviour
     private bool wasActive;
 
     private float timeTillNextFrenzy = 0;
+    private float timejumps = 0;
 
     // Use this for initialization
     void Start ()
@@ -40,6 +41,8 @@ public class BeatSyncSpawn : MonoBehaviour
         superScoreModifier = 0;
         frenzyTime = maxTime;
         wasActive = false;
+        Debug.Log(myAudio.clip.length);
+
     }
 
     // Update is called once per frame
@@ -47,8 +50,9 @@ public class BeatSyncSpawn : MonoBehaviour
     {
         if (Score.score <= Score.frenzy && !frenzier && timeTillNextFrenzy <= 0)
             FrenzyChange();
-        if (!frenzier)
+        if (!frenzier && myAudio.time + 7 < myAudio.clip.length)
         {
+            Debug.Log(myAudio.time);
             DT = myAudio.time - lastPlayed;
             timer += DT;
 
@@ -58,6 +62,7 @@ public class BeatSyncSpawn : MonoBehaviour
             lastPlayed = myAudio.time;
             if (wasActive)
             {
+                timejumps += 10;
                 lastPlayed += 10;
                 wasActive = false;
             }
