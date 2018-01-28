@@ -14,6 +14,8 @@ public class BeatSyncSpawn : MonoBehaviour
 
     private AudioSource myAudio;
 
+    private bool frenzy = false;
+
     // Use this for initialization
     void Start ()
     {
@@ -27,13 +29,16 @@ public class BeatSyncSpawn : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        DT = myAudio.time - lastPlayed;
-        timer += DT;
+        if (!frenzy)
+        {
+            DT = myAudio.time - lastPlayed;
+            timer += DT;
 
-        if (timer >= (60 / bpm))
-            SpawnSystem();
+            if (timer >= (60 / bpm))
+                SpawnSystem();
 
-        lastPlayed = myAudio.time;
+            lastPlayed = myAudio.time;
+        }
 	}
 
     void SpawnSystem()
