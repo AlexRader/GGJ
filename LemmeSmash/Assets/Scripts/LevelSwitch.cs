@@ -5,28 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class LevelSwitch : MonoBehaviour
 {
-    private AudioClip myClip;
-    private AudioSource myAudio;
+    public AudioSource myAudio;
     private float songLength;
     private int levelIndex;
+    public bool started;
+    const float waitTime = 5.0f;
     // Use this for initialization
     void Start ()
     {
 		myAudio = GetComponent<AudioSource>();
-        myClip = myAudio.clip;
-        songLength = myClip.length;
+        songLength = myAudio.clip.length;
         levelIndex = SceneManager.GetActiveScene().buildIndex;
+        started = false;
+        myAudio.Pause();
+        
+        StartCoroutine(levelStart());
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
-        songLength -= Time.deltaTime;
-        if (songLength <= 0)
+        if (started)
         {
-            LevelChange();
+            songLength -= Time.deltaTime;
+            if (songLength <= 0)
+            {
+                LevelChange();
+            }
         }
 	}
+
+    private IEnumerator levelStart()
+    {
+        yield return new WaitForSeconds(waitTime);
+        myAudio.Play();
+        CheckStart();
+    }
+
+    void CheckStart()
+    {
+        if (myAudio.isPlaying)
+            started = true;
+    }
 
     void LevelChange()
     {

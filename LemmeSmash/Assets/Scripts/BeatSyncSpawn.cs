@@ -14,18 +14,18 @@ public class BeatSyncSpawn : MonoBehaviour
 
     private AudioSource myAudio;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         lastPlayed = 0;
         DT = 0;
         timer = 0;
         randomInt = 0;
-        myAudio = GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        myAudio = GetComponent<AudioSource>(); 
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         DT = myAudio.time - lastPlayed;
         timer += DT;
