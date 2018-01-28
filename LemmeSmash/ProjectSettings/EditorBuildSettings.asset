@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TheSmashScene.unity
+    guid: 8d809f4dc3705ee42b5ab4f6b680832f
+  - enabled: 1
+    path: Assets/Scenes/NextSmashScene.unity
+    guid: da61533aec427114db2ba6b129a2452d
