@@ -7,6 +7,8 @@ public class BeatSyncSpawn : MonoBehaviour
     public GameObject[] notes;
     public GameObject[] startLane;
 
+    private GameObject[] deleteNotes;
+
     public float bpm;
     private float lastPlayed, DT, timer;
 
@@ -14,23 +16,45 @@ public class BeatSyncSpawn : MonoBehaviour
 
     private AudioSource myAudio;
 
-    private bool frenzy = false;
+    private bool frenzier = false;
+
+    private float lastKey;
+
+    private float superScoreModifier;
+
+    private const float maxTime = 10.0f;
+    private float frenzyTime;
+    private bool wasActive;
+
+    private float timeTillNextFrenzy = 0;
+    private float timejumps = 0;
+
+    public GameObject frenzyObj;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         lastPlayed = 0;
         DT = 0;
         timer = 0;
         randomInt = 0;
-        myAudio = GetComponent<AudioSource>(); 
+        myAudio = GetComponent<AudioSource>();
+        lastKey = 0;
+        superScoreModifier = 0;
+        frenzyTime = maxTime;
+        wasActive = false;
+        Debug.Log(myAudio.clip.length);
+
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        if (!frenzy)
+        if (Score.score <= Score.frenzy && !frenzier && timeTillNextFrenzy <= 0)
+            FrenzyChange();
+        if (!frenzier && myAudio.time + 7 < myAudio.clip.length)
         {
+            Debug.Log(myAudio.time);
             DT = myAudio.time - lastPlayed;
             timer += DT;
 
@@ -38,8 +62,86 @@ public class BeatSyncSpawn : MonoBehaviour
                 SpawnSystem();
 
             lastPlayed = myAudio.time;
+            if (wasActive)
+            {
+                timejumps += 10;
+                lastPlayed += 10;
+                wasActive = false;
+            }
+            timeTillNextFrenzy -= Time.deltaTime;
         }
-	}
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (lastKey != 273)
+                    superScoreModifier += .1f;
+                lastKey = 273;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (lastKey != 274)
+                    superScoreModifier += .1f;
+                lastKey = 274;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (lastKey != 276)
+                    superScoreModifier += .1f;
+                lastKey = 276;
+
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (lastKey != 275)
+                    superScoreModifier += .1f;
+                lastKey = 275;
+            }
+            frenzyTime -= Time.deltaTime;
+            if (frenzyTime <= 0)
+            {
+                FrenzyChange();
+                if (Score.frenzy > superScoreModifier + Score.score)
+                    superScoreModifier += (Score.frenzy - (superScoreModifier + Score.score));
+                ModifyScore(superScoreModifier + 5);
+                frenzyTime = maxTime;
+                timeTillNextFrenzy = maxTime * 2;
+            }
+        }
+    }
+
+    void ModifyScore(float ScoreChange)
+    {
+        Score.score += ScoreChange;
+        superScoreModifier = 0;
+    }
+
+    void FrenzyChange()
+    {
+        frenzyObj.SendMessage("setActive");
+        frenzier = !frenzier;
+        deleteNotes = GameObject.FindGameObjectsWithTag("Up");
+        for (int i = 0; i < deleteNotes.Length; i++)
+        {
+            Destroy(deleteNotes[i].gameObject);
+        }
+        deleteNotes = GameObject.FindGameObjectsWithTag("Down");
+        for (int i = 0; i < deleteNotes.Length; i++)
+        {
+            Destroy(deleteNotes[i].gameObject);
+        }
+        deleteNotes = GameObject.FindGameObjectsWithTag("Left");
+        for (int i = 0; i < deleteNotes.Length; i++)
+        {
+            Destroy(deleteNotes[i].gameObject);
+        }
+        deleteNotes = GameObject.FindGameObjectsWithTag("Right");
+        for (int i = 0; i < deleteNotes.Length; i++)
+        {
+            Destroy(deleteNotes[i].gameObject);
+        }
+        wasActive = true;
+    }
 
     void SpawnSystem()
     {
@@ -48,3 +150,4 @@ public class BeatSyncSpawn : MonoBehaviour
         timer -= 60f / bpm;
     }
 }
+

@@ -10,30 +10,32 @@ public class LevelSwitch : MonoBehaviour
     private int levelIndex;
     public bool started;
     const float waitTime = 5.0f;
+    private bool AudioPaused = false;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		myAudio = GetComponent<AudioSource>();
+        myAudio = GetComponent<AudioSource>();
         songLength = myAudio.clip.length;
         levelIndex = SceneManager.GetActiveScene().buildIndex;
         started = false;
         myAudio.Pause();
-        
+
         StartCoroutine(levelStart());
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         if (started)
         {
             songLength -= Time.deltaTime;
+
             if (songLength <= 0)
             {
                 LevelChange();
             }
         }
-	}
+    }
 
     private IEnumerator levelStart()
     {
@@ -53,3 +55,4 @@ public class LevelSwitch : MonoBehaviour
         SceneManager.LoadScene(levelIndex + 1, LoadSceneMode.Single);
     }
 }
+

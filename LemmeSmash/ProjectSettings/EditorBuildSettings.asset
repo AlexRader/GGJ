@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 390577663020a4649bb8b2e4c50eb965
+  - enabled: 1
     path: Assets/Scenes/TheSmashScene.unity
     guid: 8d809f4dc3705ee42b5ab4f6b680832f
   - enabled: 1
     path: Assets/Scenes/NextSmashScene.unity
+    guid: 1369028234b298b43b3b64b9635b20ac
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/da61533aec427114db2ba6b129a2452d
     guid: da61533aec427114db2ba6b129a2452d

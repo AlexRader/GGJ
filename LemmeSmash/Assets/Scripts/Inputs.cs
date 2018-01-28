@@ -8,10 +8,52 @@ public class Inputs : MonoBehaviour
     private GameObject collidedObject;
     private bool hit = false;
     private bool hasCollided = false;
+    public Animator anim;
 
     private void Awake()
     {
         Event e = Event.current;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            anim.SetBool("upPressed", true);
+
+            anim.SetBool("leftPressed", false);
+            anim.SetBool("rightPressed", false);
+            anim.SetBool("downPressed", false);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            anim.SetBool("downPressed", true);
+
+            anim.SetBool("leftPressed", false);
+            anim.SetBool("rightPressed", false);
+            anim.SetBool("upPressed", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            anim.SetBool("leftPressed", true);
+
+            anim.SetBool("upPressed", false);
+            anim.SetBool("rightPressed", false);
+            anim.SetBool("downPressed", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            anim.SetBool("rightPressed", true);
+
+            anim.SetBool("leftPressed", false);
+            anim.SetBool("upPressed", false);
+            anim.SetBool("downPressed", false);
+
+        }
+
     }
 
     void OnGUI()
@@ -34,6 +76,8 @@ public class Inputs : MonoBehaviour
     {
 
         RunChecks();
+
+        
     }
 
     void RunChecks()

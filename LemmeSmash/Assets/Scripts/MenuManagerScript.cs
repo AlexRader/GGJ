@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManagerScript : MonoBehaviour {
 
@@ -17,11 +18,18 @@ public class MenuManagerScript : MonoBehaviour {
 	bool goToControls = false;
 	bool startGame = false;
 
-	public void Transition(){
+    private int levelIndex;
+
+    public void Transition(){
 		Instantiate (faderFab);
 	}
 
-	void Update(){
+    void Start()
+    {
+        levelIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    void Update(){
 		if (countdown) {
 			delayTransition -= Time.deltaTime;
 			if (delayTransition <= 0) {
@@ -33,7 +41,8 @@ public class MenuManagerScript : MonoBehaviour {
 					ControlsOn ();
 				} else if (startGame) {
 					Debug.Log ("game time binches");
-				}
+                    SceneManager.LoadScene(levelIndex + 1, LoadSceneMode.Single);
+                }
 				countdown = false;
 				delayTransition = delayConstant;
 			}
