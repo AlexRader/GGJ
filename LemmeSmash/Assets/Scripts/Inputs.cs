@@ -8,6 +8,7 @@ public class Inputs : MonoBehaviour
     public Vector4 collisionKeys;
     int setNumb = 1;
     public GameObject beatCheck;
+    public Animator anim;
 
     private bool canDestroy;
     private bool canDestroy2;
@@ -31,7 +32,10 @@ public class Inputs : MonoBehaviour
     void InputCheck()
     {
         if (Input.GetKey(KeyCode.UpArrow))
+        {
             activeKeys.x = setNumb;
+            anim.SetBool("UpPressed", true);
+        }
           
         if (Input.GetKeyDown(KeyCode.DownArrow))
             activeKeys.y = setNumb;
