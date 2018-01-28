@@ -1,1 +1,15 @@
-sprite_bird_idle - 1024x1024
+sprite_bird_idle
+sprite_bird_up
+sprite_bird_down
+sprite_bird_left
+sprite_bird_right - 1024x1024
+
+sprite_female_idle - 1024x1024
+
+hearts(all) - 70x70
+sprite_arrow_glow - 200x200
+
+sprite_treeBranch - 1920x1080
+sprite_bg_trees - 1920x1080
+sprite_treeBranch - 1920x1080
+
