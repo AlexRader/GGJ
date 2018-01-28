@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SmashoMeter: {fileID: 105030521}
+  frenzyChanger: {fileID: 1530544320}
 --- !u!1 &365589566
 GameObject:
   m_ObjectHideFlags: 0

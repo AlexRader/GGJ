@@ -10,6 +10,11 @@ public class Score : MonoBehaviour {
 
     public Slider SmashoMeter;
 
+    public GameObject frenzyChanger;
+
+    [SerializeField]
+    public static float frenzy = 12;
+
     // Use this for initialization
     void Start () {
         score = 25;
@@ -20,19 +25,20 @@ public class Score : MonoBehaviour {
         SmashoMeter.value = score;
         score -= MissedNotes.notesMissed;
 
-        Frenzy();
+        //Frenzy();
         Victory();
         //Test();
 	}
-
+    /*
     void Frenzy()
     {
-        if(score <= 12)
+        if(score <= 20)
         {
+            frenzyChanger.GetComponent<BeatSyncSpawn>().SendMessage("FrenzyChange");
             //altered color scheme + animation set
             //frenzy mode
         }
-    }
+    }*/
 
     void Victory()
     {
