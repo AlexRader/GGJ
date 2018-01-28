@@ -542,9 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c57f2382d5764a4a9108048e3823b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeKeys: {x: 0, y: 0, z: 0, w: 0}
-  collisionKeys: {x: 0, y: 0, z: 0, w: 0}
-  beatCheck: {fileID: 0}
+  theKey: 275
 --- !u!58 &599826488
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -821,9 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c57f2382d5764a4a9108048e3823b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeKeys: {x: 0, y: 0, z: 0, w: 0}
-  collisionKeys: {x: 0, y: 0, z: 0, w: 0}
-  beatCheck: {fileID: 0}
+  theKey: 276
 --- !u!58 &1124968142
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -993,9 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c57f2382d5764a4a9108048e3823b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeKeys: {x: 0, y: 0, z: 0, w: 0}
-  collisionKeys: {x: 0, y: 0, z: 0, w: 0}
-  beatCheck: {fileID: 0}
+  theKey: 274
 --- !u!58 &1365657443
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1097,9 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c57f2382d5764a4a9108048e3823b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeKeys: {x: 0, y: 0, z: 0, w: 0}
-  collisionKeys: {x: 0, y: 0, z: 0, w: 0}
-  beatCheck: {fileID: 0}
+  theKey: 273
 --- !u!58 &1414709764
 CircleCollider2D:
   m_ObjectHideFlags: 0

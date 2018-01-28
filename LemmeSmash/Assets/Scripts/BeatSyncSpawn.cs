@@ -13,7 +13,6 @@ public class BeatSyncSpawn : MonoBehaviour
     private int randomInt;
 
     private AudioSource myAudio;
-    private double nextEventTime;
 
     // Use this for initialization
     void Start ()
